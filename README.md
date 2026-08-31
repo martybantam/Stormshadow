@@ -15,6 +15,12 @@ Parameters
 
 --seed      Seed for random number generator, can be used to enforce deterministic sequences (default time of day)
 
---port-mode  UDP port numbers can be (1) Preserved (2) Selected at random
+--port-mode  UDP port numbers can be (0) Preserved (1) Selected at random (2) Derived from generated source ip address (default 2)
+
+--nfqueue    Linux nfqueue from which udp packets are derived and returned to
+
+
+
+
 
 
