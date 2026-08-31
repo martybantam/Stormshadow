@@ -3,7 +3,22 @@ A python based framework to emulate UDP DDoS attacks
 
 Usage:
 
-The program receives udp packets from a Linux nfqueue (default 1, but configurable). It then rewrites source ip address and ports prior to returning the packet to the nfqueue for onward transmission
+The program receives udp packets from a Linux nfqueue (default 1, but configurable). It then rewrites source ip address and ports prior to returning the packet to the nfqueue for onward transmission.
+
+Typically packets are directed towards Stormshadow by sending packets of interest to the chosen nfqueue
+
+eg
+
+sudo iptables -I OUTPUT -p udp --dport 5060 -j NFQUEUE --queue-num 1
+
+to monitor usage
+
+sudo iptables -L OUTPUT -n -v --line-numbers
+
+to cancel
+
+sudo iptables -D OUTPUT -p udp --dport 5060 -j NFQUEUE --queue-num 1
+
 
 Parameters
 
