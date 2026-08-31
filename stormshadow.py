@@ -52,7 +52,7 @@ parser.add_argument(
 )
 
 parser.add_argument(
-    "--queue",
+    "--nfqueue",
     type=int,
     default=1,
     help="NFQUEUE number (default: 1)"
@@ -158,5 +158,5 @@ def modify_packet(pkt):
     pkt.accept()
 
 nfqueue = NetfilterQueue()
-nfqueue.bind(args.queue, modify_packet)
+nfqueue.bind(args.nfqueue, modify_packet)
 nfqueue.run()
